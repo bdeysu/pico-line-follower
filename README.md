@@ -6,7 +6,7 @@ The project uses MicroPython and is organized into separate modules.
 
 ## Demo
 
-[Watch the demo video](media/demo.mp4)
+[![Robot Demo](https://img.youtube.com/vi/nxiaHqnXbtw/0.jpg)](https://www.youtube.com/watch?v=nxiaHqnXbtw)
 
 ## Overview
 
