@@ -26,8 +26,73 @@ On the next startup, if a saved path exists, the robot automatically switches to
 
 ## System Diagram
 
+## System Diagram
 
-![System Diagram](docs/system_diagram.png)
+```text
+                    +----------------+
+                    |  Battery Pack  |
+                    +--------+-------+
+                             |
+                             | Battery +
+                             v
+             +---------------+----------------+
+             |                                |
+             v                                v
+       +-----------+                    +------------+
+       | Pico VSYS |                    | TB6612 VM  |
+       +-----------+                    +------------+
+
+Battery - / GND
+      |
+      +------------------+------------------+
+                         |                  |
+                         v                  v
+                    +----------+      +-------------+
+                    | Pico GND |      | TB6612 GND  |
+                    +----------+      +-------------+
+
+
+                  +----------------------+
+                  |   Raspberry Pi Pico  |
+                  +----------------------+
+                     |       |        |
+                     |       |        |
+       GP0-GP6 ------+       |        +------ GP10-GP14
+       motor control         |               line sensors
+                             |
+                             +------ GP16-GP19
+                                    motor encoders
+
+
++----------------------+       +----------------------+
+| 5x TCRT5000 Sensors  |       |  Hall Encoder Motors |
+| L2 L1 C R1 R2        |       | Left A/B, Right A/B  |
++----------------------+       +----------------------+
+          |                              |
+          |                              |
+          v                              v
+   Pico digital inputs            Pico encoder inputs
+
+
+              +-----------------------------+
+              |         TB6612FNG           |
+              +-----------------------------+
+              | VCC  <- Pico 3V3 OUT        |
+              | VM   <- Battery +           |
+              | GND  <- Common GND          |
+              | PWMA <- GP0                 |
+              | AIN1 <- GP1                 |
+              | AIN2 <- GP2                 |
+              | PWMB <- GP3                 |
+              | BIN1 <- GP4                 |
+              | BIN2 <- GP5                 |
+              | STBY <- GP6                 |
+              +-----------------------------+
+                    |                 |
+                    v                 v
+              Left Motor         Right Motor
+```
+
 
 ## Features
 
