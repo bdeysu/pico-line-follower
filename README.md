@@ -6,7 +6,7 @@ The project uses MicroPython and is organized into separate modules.
 
 ## Demo
 
-media/demo.mp4
+[Watch the demo video](media/demo.mp4)
 
 ## Overview
 
