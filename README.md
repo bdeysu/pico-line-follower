@@ -24,7 +24,6 @@ During the first run, the robot explores the maze using a right-hand rule strate
 
 On the next startup, if a saved path exists, the robot automatically switches to fast-run mode and follows the stored route instead of solving the maze again.
 
-## System Diagram
 
 ## System Diagram
 
